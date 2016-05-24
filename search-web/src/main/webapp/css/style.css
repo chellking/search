@@ -1,0 +1,397 @@
+table {
+	font-size: 12px;
+	font-style: normal;
+	line-height: 18px;
+	font-variant: normal;
+	font-family: 'Microsoft YaHei', Lucida Grande,Verdana, Arial, Sans-Serif;
+	color: #464545;
+
+
+
+
+}
+a:link {
+	font-size: 12px;
+	line-height: 18px;
+	text-decoration: none;
+	color: #057DC9;
+}
+a:visited {
+	font-size: 12px;
+	line-height: 18px;
+	text-decoration: none;
+	color: #057DC9;
+}
+a:hover {
+	font-size: 12px;
+	line-height: 18px;
+	color: #057DC9;
+	text-decoration: underline;
+}
+.title {
+	font-size: 14px;
+	color: #000000;
+}
+.linetable {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #DEE3E7;
+}
+.titletextbig {
+	font-size: 12px;
+	font-style: normal;
+	color: 005DAD;
+	font-weight: bold;
+	font-family: "Arial", "Helvetica", "sans-serif";
+
+}
+.A3:link {
+	font-size: 12px;
+	color: 006173;
+	text-decoration: none;
+	line-height: 18px;
+
+}
+.A6:link {
+
+	font-size: 12px;
+	line-height: 18px;
+	text-decoration: none;
+	color: 521C7B;
+}
+.A6:hover {
+
+	font-size: 12px;
+	line-height: 18px;
+	color: 521C7B;
+	text-decoration: underline;
+}
+.A6:visited {
+
+	font-size: 12px;
+	line-height: 18px;
+	text-decoration: none;
+	color: 521C7B;
+}
+.A7:link {
+	font-size: 12px;
+	color: 7F5621;
+	text-decoration: none;
+}
+.A7:visited {
+	font-size: 12px;
+	color: 7F5621;
+	text-decoration: none;
+}
+.A7:hover{
+	font-size: 12px;
+	color: 7F5621;
+	text-decoration: none;
+}
+.form {
+	font-size: 11px;
+	background-color: #CCCCCC;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #666666;
+	border-right-color: #666666;
+	border-bottom-color: #666666;
+	border-left-color: #666666;
+}
+
+
+
+.a0:link {
+	font-size: 12px;
+	line-height: 18px;
+	text-decoration: none;
+	color: #fe7b24;
+}
+.a0:visited {
+	font-size: 12px;
+	line-height: 18px;
+	text-decoration: none;
+	color: #fe7b24;
+}
+.a0:hover {
+	font-size: 12px;
+	line-height: 18px;
+	color: #fd9835;
+	text-decoration: underline;
+}
+.title8 {
+	font-size: 12px;
+	color: #696969;
+}
+.line1 {
+	border: 1px solid #ffffff;
+}
+.line2 {
+	border: 1px solid #e9e8e8;
+	background-color: #F5F5F5;
+
+}
+.line3 {
+	border: 1px solid #e9e8e8;
+}
+.tableline {
+	background-color: #fcf0d0;
+	border: 1px solid #efd482;
+}
+.bottom_2008 {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #7B7979;
+}
+.14pix {
+	font-size: 12px;
+	line-height: 18px;
+	color: #666666;
+}
+.14 {
+	font-size: 14px;
+	font-weight: bolder;
+}
+.menuline {
+	border: 1px #CCCCCC;
+}
+.14little {
+	font-family: 'Microsoft YaHei', Lucida Grande,Verdana, Arial, Sans-Serif;
+	font-size: 14px;
+	color: #555555;
+	line-height: 18px;
+
+}
+.A9:link {
+	font-size: 13px;
+	text-decoration: none;
+	color:#ffffff;
+	line-height: 18px;
+
+}
+.A9:visited {
+	font-size: 13px;
+	text-decoration: none;
+	color: #ffffff;
+	line-height: 18px;
+
+}
+.A9:hover {
+	font-size: 13px;
+	line-height: 18px;
+	color: #ffffff;
+	text-decoration: none;
+
+}
+.18little {
+	font-family: 'Microsoft YaHei', "Lucida Grande", "Verdana", "Arial", "Sans-Serif";
+	font-size: 17px;
+
+	line-height: 18px;
+	font-weight: bold1;
+	color: #e1036f;
+}
+
+
+
+
+.A19:link {
+	font-size: 15px;
+	text-decoration: none;
+	color:#f37901;
+	line-height: 25px;
+	font-weight: bold;
+	font-family: 'Microsoft YaHei', "Lucida Grande", "Verdana", "Arial", "Sans-Serif";
+
+}
+.A19:visited {
+	font-size: 15px;
+	text-decoration: none;
+	color: #f37901;
+	line-height: 25px;
+	font-weight: bold;
+	font-family: 'Microsoft YaHei', "Lucida Grande", "Verdana", "Arial", "Sans-Serif";
+
+}
+.A19:hover {
+	font-size: 15px;
+	line-height: 25px;
+	color: #f37901;
+	text-decoration: underline;
+	font-weight: bold;
+	font-weight: bold;
+	font-family: 'Microsoft YaHei', "Lucida Grande", "Verdana", "Arial", "Sans-Serif";
+
+}
+
+.title30 {
+	font-size: 22px;
+	font-style: normal;
+	line-height: 25px;
+	font-variant: normal;
+	font-family: 'Microsoft YaHei', "Lucida Grande", Verdana, Arial, Sans-Serif;
+	color: #58595B;
+	font-weight: lighter;
+
+
+
+
+}
+.titlebg {
+	background-color: #FFFFFF;
+	background-image: url(../images/title-bg.gif);
+	background-repeat: repeat-x;
+	background-position: left bottom;
+	height: 52px;
+}
+.text16 {
+	font-size: 15px;
+	font-weight: bold;
+	color: #58595B;
+}
+
+.text14 {
+	font-size: 14px;
+	font-weight: bold;
+	color: #000;
+}
+
+.text14g {
+	font-size: 14px;
+	color: #000;
+}
+
+.link14:link {
+	font-size: 15px;
+	line-height: 18px;
+	text-decoration: none;
+	color: #057DC9;
+}
+.link14:visited {
+	font-size: 15px;
+	line-height: 18px;
+	text-decoration: none;
+	color: #057DC9;
+}
+.link14:hover {
+	font-size: 15px;
+	line-height: 18px;
+	color: #057DC9;
+	text-decoration: underline;
+}
+.none{
+	display:none;
+}
+/*
+.pattern3{
+	display:none;
+}
+*/
+.AA:link {
+	font-size: 15px;
+	line-height: 18px;
+	text-decoration: none;
+	color: #0265AB;
+}
+.AA:visited {
+	font-size: 15px;
+	line-height: 18px;
+	text-decoration: none;
+	color: #0265AB;
+}
+.AA:hover {
+	font-size: 15px;
+	line-height: 18px;
+	color: #0265AB;
+	text-decoration: underline;
+}
+
+
+.text16 {
+	font-size: 16px;
+	font-style: normal;
+	line-height: 25px;
+	font-variant: normal;
+	font-family: 'Microsoft YaHei', "Lucida Grande", Verdana, Arial, Sans-Serif;
+	color: #58595B;
+	font-weight: bold;
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+	border: 1px solid #FFFFFF;
+
+}
+.link13:link {
+	font-size: 14px;
+	line-height: 18px;
+	text-decoration: none;
+	color: #057DC9;
+}
+.link13:visited {
+	font-size: 14px;
+	line-height: 18px;
+	text-decoration: none;
+	color: #057DC9;
+}
+.link13:hover {
+	font-size: 14px;
+	line-height: 18px;
+	color: #057DC9;
+	text-decoration: underline;
+}
+
+
+.link133:link {
+	font-size: 14px;
+	line-height: 18px;
+	text-decoration: none;
+	color: #ffffff;
+}
+.link133:visited {
+	font-size: 14px;
+	line-height: 18px;
+	text-decoration: none;
+	color: #ffffff;
+}
+.link133:hover {
+	font-size: 14px;
+	line-height: 18px;
+	color: #ffffff;
+	text-decoration: underline;
+}
+
+.textfile{
+	font-size: 12px;
+	color: #333333;
+	border-top-width: thin;
+	border-right-width: thin;
+	border-bottom-width: thin;
+	border-left-width: thin;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	font-family: 'Microsoft YaHei', "Lucida Grande", Verdana, Arial, Sans-Serif;
+	}
+
+p{
+	margin:6px;
+}
+
+
+ol{
+margin-top:0px;
+ }
+ 
+ul{
+margin-top:0px;
+ }
+ 
+hr{
+height:1px;border:none;border-top:1px solid #FFCC00;
+}
