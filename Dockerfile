@@ -1,34 +1,60 @@
-FROM maven:3.3.3
+FROM ubuntu:14.04
+MAINTAINER ubuntu <18686882@qq.com>
 
-ENV CATALINA_HOME /usr/local/tomcat
-ENV PATH $CATALINA_HOME/bin:$PATH
-RUN mkdir -p "$CATALINA_HOME"
-WORKDIR $CATALINA_HOME
+# Keep upstart from complaining
+RUN dpkg-divert --local --rename --add /sbin/initctl
+RUN ln -sf /bin/true /sbin/initctl
 
-RUN gpg --keyserver pool.sks-keyservers.net --recv-keys \
-	05AB33110949707C93A279E3D3EFE6B686867BA6 \
-	07E48665A34DCAFAE522E5E6266191C37C037D42 \
-	47309207D818FFD8DCD3F83F1931D684307A10A5 \
-	541FBE7D8F78B25E055DDEE13C370389288584E7 \
-	61B832AC2F1C5A90F0F9B00A1C506407564C17A3 \
-	79F7026C690BAA50B92CD8B66A3AD3F4F22C4FED \
-	9BA44C2621385CB966EBA586F72C284D731FABEE \
-	A27677289986DB50844682F8ACB77FC2E86E29AC \
-	A9C5DF4D22E99998D9875A5110C01C5A2F6059E7 \
-	DCFD35E0BF8CA7344752DE8B6FB21E8933C60243 \
-	F3A04C595DB5B6A5F1ECA43E3B7BBB100D811BBE \
-	F7DA48BB64BCB84ECBA7EE6935CD23C10D498E23
-	
-ENV TOMCAT_VERSION 8.0.35
-ENV TOMCAT_TGZ_URL https://www.apache.org/dist/tomcat/tomcat-8/v$TOMCAT_VERSION/bin/apache-tomcat-$TOMCAT_VERSION.tar.gz
+# Let the conatiner know that there is no tty
+ENV DEBIAN_FRONTEND noninteractive
 
-RUN set -x \
-	&& curl -fSL "$TOMCAT_TGZ_URL" -o tomcat.tar.gz \
-	&& curl -fSL "$TOMCAT_TGZ_URL.asc" -o tomcat.tar.gz.asc \
-	&& gpg --verify tomcat.tar.gz.asc \
-	&& tar -xvf tomcat.tar.gz --strip-components=1 \
-	&& rm bin/*.bat \
-	&& rm tomcat.tar.gz*
-	
-EXPOSE 8080
-CMD ["catalina.sh", "run"]
+RUN apt-get update
+RUN apt-get -y upgrade
+
+# Basic Requirements
+RUN apt-get -y install mysql-server mysql-client nginx php5-fpm php5-mysql php-apc pwgen python-setuptools curl git unzip
+
+# Wordpress Requirements
+RUN apt-get -y install php5-curl php5-gd php5-intl php-pear php5-imagick php5-imap php5-mcrypt php5-memcache php5-ming php5-ps php5-pspell php5-recode php5-sqlite php5-tidy php5-xmlrpc php5-xsl
+
+# mysql config
+RUN sed -i -e"s/^bind-addresss*=s*127.0.0.1/bind-address = 0.0.0.0/" /etc/mysql/my.cnf
+
+# nginx config
+RUN sed -i -e"s/keepalive_timeouts*65/keepalive_timeout 2/" /etc/nginx/nginx.conf
+RUN sed -i -e"s/keepalive_timeout 2/keepalive_timeout 2;ntclient_max_body_size 100m/" /etc/nginx/nginx.conf
+RUN echo "daemon off;" >> /etc/nginx/nginx.conf
+
+# php-fpm config
+RUN sed -i -e "s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g" /etc/php5/fpm/php.ini
+RUN sed -i -e "s/upload_max_filesizes*=s*2M/upload_max_filesize = 100M/g" /etc/php5/fpm/php.ini
+RUN sed -i -e "s/post_max_sizes*=s*8M/post_max_size = 100M/g" /etc/php5/fpm/php.ini
+RUN sed -i -e "s/;daemonizes*=s*yes/daemonize = no/g" /etc/php5/fpm/php-fpm.conf
+RUN sed -i -e "s/;catch_workers_outputs*=s*yes/catch_workers_output = yes/g" /etc/php5/fpm/pool.d/www.conf
+RUN find /etc/php5/cli/conf.d/ -name "*.ini" -exec sed -i -re 's/^(s*)#(.*)/1;2/g' {} ;
+
+# nginx site conf
+ADD ./nginx-site.conf /etc/nginx/sites-available/default
+
+# Supervisor Config
+RUN /usr/bin/easy_install supervisor
+RUN /usr/bin/easy_install supervisor-stdout
+ADD ./supervisord.conf /etc/supervisord.conf
+
+# Install Wordpress
+ADD http://wordpress.org/latest.tar.gz /usr/share/nginx/latest.tar.gz
+RUN cd /usr/share/nginx/ && tar xvf latest.tar.gz && rm latest.tar.gz
+RUN mv /usr/share/nginx/html/5* /usr/share/nginx/wordpress
+RUN rm -rf /usr/share/nginx/www
+RUN mv /usr/share/nginx/wordpress /usr/share/nginx/www
+RUN chown -R www-data:www-data /usr/share/nginx/www
+
+# Wordpress Initialization and Startup Script
+ADD ./start.sh /start.sh
+RUN chmod 755 /start.sh
+
+# private expose
+EXPOSE 3306
+EXPOSE 80
+
+CMD ["/bin/bash", "/start.sh"]
